@@ -1,6 +1,14 @@
-const loader = (content, map, meta) => {
-	console.log(content);
-	return content;
-};
+const { resolveTiledPaths } = require('../../../utils');
+
+function loader(tilemapSource) {
+	const { projectRoot } = this.getOptions();
+
+	const tileMap = JSON.parse(tilemapSource);
+	tileMap.tilesets = tileMap.tilesets.map((tileSet) => ({
+		...tileSet,
+		source: resolveTiledPaths(projectRoot, this.resourcePath, tileSet.source),
+	}));
+	return JSON.stringify(tileMap);
+}
 
 module.exports = loader;
