@@ -1,6 +1,6 @@
 {
 	"name": "miaam-assets",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "Miaam Assets",
 	"scripts": {
 		"prepare": "husky install",
@@ -39,7 +39,6 @@
 		"prettier": "^2.4.1",
 		"source-map-loader": "^3.0.0"
 	},
-	"dependencies": {},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Team-Miaam/miaam-assets"

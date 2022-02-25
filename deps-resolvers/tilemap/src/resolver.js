@@ -1,10 +1,12 @@
 const { resolveTiledPaths } = require('../../../utils');
 
-function resolver(tilemapSource) {
-	const { projectRoot } = this.getOptions();
+function resolver(tilemapSource, context) {
+	const { projectRoot } = context.options;
 
 	const tileMap = JSON.parse(tilemapSource);
-	const dependencies = tileMap.tilesets.map(({ source }) => resolveTiledPaths(projectRoot, this.resourcePath, source));
+	const dependencies = tileMap.tilesets.map(({ source }) =>
+		resolveTiledPaths(projectRoot, context.resourcePath, source)
+	);
 	return dependencies;
 }
 

@@ -1,10 +1,10 @@
 const { resolveTiledPaths } = require('../../../utils');
 
-function resolver(tileSetSource) {
-	const { projectRoot } = this.getOptions();
+function resolver(tileSetSource, context) {
+	const { projectRoot } = context.options;
 
 	const tileSet = JSON.parse(tileSetSource);
-	return [resolveTiledPaths(projectRoot, this.resourcePath, tileSet.image)];
+	return [resolveTiledPaths(projectRoot, context.resourcePath, tileSet.image)];
 }
 
 module.exports = resolver;
