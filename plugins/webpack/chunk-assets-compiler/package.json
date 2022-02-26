@@ -1,0 +1,10 @@
+{
+	"name": "chunk-assets-compiler",
+	"version": "0.0.1",
+	"description": "Chunk asset compiler for miaam-assets",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [],
+	"author": "Miaam Core Team",
+	"license": "MIT"
+}
