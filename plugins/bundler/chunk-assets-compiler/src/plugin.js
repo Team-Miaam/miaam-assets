@@ -7,13 +7,17 @@ class ChunkAssetCompilerPlugin {
 
 	getAllAssets(source) {
 		const assetsPath = this.miaamOptions.paths.assets.substring(1);
-		const regex = new RegExp(`('|")${assetsPath}((\\/[^/\\s]+)+)('|")`, 'gm');
+		const regex = new RegExp(`('|")\\.?${assetsPath}((\\/[^/\\s\\"\\']+)+)('|")`, 'gm');
 		let match;
 		const assets = new Set();
 		do {
 			match = regex.exec(source);
 			if (match) {
-				assets.add(match[0].substring(1, match[0].length - 1));
+				let assetPath = match[0].substring(1, match[0].length - 1);
+				if (assetPath.startsWith('.')) {
+					assetPath = assetPath.substring(1);
+				}
+				assets.add(assetPath);
 			}
 		} while (match);
 
