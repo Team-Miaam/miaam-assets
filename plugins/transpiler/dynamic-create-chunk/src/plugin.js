@@ -15,7 +15,7 @@ const plugin = (babel) => {
 
 				const source = expression.arguments[0].value;
 				const importExpression = t.callExpression(t.import(), [t.stringLiteral(source)]);
-				const logicalExpression = t.logicalExpression('&&', t.identifier('undefined'), importExpression);
+				const logicalExpression = t.logicalExpression('&&', t.identifier('__MIAAM__.UNDEFINED'), importExpression);
 				path.node.expression = logicalExpression;
 			},
 		},
