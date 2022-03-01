@@ -1,6 +1,6 @@
 {
 	"name": "miaam-assets",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "Miaam Assets",
 	"scripts": {
 		"prepare": "husky install",

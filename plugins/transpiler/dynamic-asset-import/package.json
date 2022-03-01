@@ -1,0 +1,10 @@
+{
+	"name": "dynamic-asset-import",
+	"version": "1.0.0",
+	"description": "Plugin to transpile dynamic imports",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [],
+	"author": "Miaam Core Team",
+	"license": "ISC"
+}
