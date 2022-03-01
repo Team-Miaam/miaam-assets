@@ -25,8 +25,8 @@ class ChunkAssetCompilerPlugin {
 	}
 
 	apply(compiler) {
-		const chunksAssetsIndex = {};
 		compiler.hooks.emit.tapAsync(this.pluginName, (compilation, done) => {
+			const chunksAssetsIndex = {};
 			compilation.chunks.forEach((chunk) => {
 				chunk.files.forEach((filename) => {
 					const source = compilation.assets[filename].source();
