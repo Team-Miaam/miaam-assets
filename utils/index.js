@@ -1,5 +1,5 @@
-const resolveTiledPaths = require('./resolveTiledPath');
+const resolvePath = require('./resolveTiledPath');
 
 module.exports = {
-	resolveTiledPaths,
+	resolvePath,
 };

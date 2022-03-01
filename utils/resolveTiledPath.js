@@ -1,4 +1,4 @@
-const resolvePath = (basePath, targetPath) => {
+const simulateResolvePath = (basePath, targetPath) => {
 	const basePathDecomposed = basePath.split('/');
 	const targetPathDecomposed = targetPath.split('/');
 	if (basePathDecomposed[basePathDecomposed.length - 1].includes('.')) {
@@ -20,11 +20,11 @@ const resolvePath = (basePath, targetPath) => {
 	return resolvedPath;
 };
 
-const resolveTiledPath = (projectRoot, resourcePath, dependencyPath) => {
+const resolvePath = (projectRoot, resourcePath, dependencyPath) => {
 	const refactoredProjectRoot = projectRoot.replaceAll('\\', '/');
 	const refactoredResourcePath = resourcePath.replaceAll('\\', '/');
 	const refactoredDependencyPath = dependencyPath.replaceAll('\\', '/');
-	let resolvedPath = resolvePath(refactoredResourcePath, refactoredDependencyPath);
+	let resolvedPath = simulateResolvePath(refactoredResourcePath, refactoredDependencyPath);
 	if (resolvedPath.startsWith(refactoredProjectRoot)) {
 		// eslint-disable-next-line prefer-destructuring
 		resolvedPath = resolvedPath.split(refactoredProjectRoot)[1];
@@ -32,4 +32,4 @@ const resolveTiledPath = (projectRoot, resourcePath, dependencyPath) => {
 	return resolvedPath;
 };
 
-module.exports = resolveTiledPath;
+module.exports = resolvePath;

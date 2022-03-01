@@ -1,3 +1,3 @@
-import plugin from './src/plugin';
+const plugin = require('./src/plugin');
 
-export default plugin;
+module.exports = plugin;
