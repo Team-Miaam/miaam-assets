@@ -1,8 +1,7 @@
-const chunkRegex = /__createChunk__\(('|")(.*)('|")\)/;
+const chunkRegex = /__createChunk__\(('|")(.*)('|")\)/gm;
 
 function loader(source) {
-	const updatedSource = source.replaceAll(chunkRegex, '() => import($2)');
-	console.log(updatedSource);
+	const updatedSource = source.replaceAll(chunkRegex, "{source: '$2', load: () => import('$2')}");
 	return updatedSource;
 }
 
