@@ -14,7 +14,6 @@ class Loader {
 	use(resource, next) {
 		const resourcePath = resource.url;
 		if (!this.test(resourcePath)) return next();
-		console.log(resource);
 
 		const tileMap = resource.data;
 		tileMap.tilesets = tileMap.tilesets.map((tileSet) => ({
