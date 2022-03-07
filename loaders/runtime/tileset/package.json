@@ -1,0 +1,35 @@
+{
+	"name": "tileset-loader-runtime",
+	"version": "0.0.1",
+	"description": "Tilemap loader",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier --write .",
+		"lint": "eslint .",
+		"dev:build": "webpack --config ./webpack.dev.config.js",
+		"test": "mocha",
+		"test:watch": "mocha --watch || exit 0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/eslint-parser": "^7.16.3",
+		"@babel/eslint-plugin": "^7.13.16",
+		"@babel/preset-env": "^7.16.4",
+		"@babel/register": "^7.16.0",
+		"babel-loader": "^8.2.3",
+		"chai": "^4.3.4",
+		"eslint": "^7.26.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-prettier": "^3.4.1",
+		"mocha": "^9.1.3",
+		"prettier": "^2.4.1",
+		"source-map-loader": "^3.0.0",
+		"webpack": "^5.64.3",
+		"webpack-cli": "^4.9.1"
+	},
+	"keywords": [],
+	"author": "Miaam Core Team",
+	"license": "MIT"
+}
