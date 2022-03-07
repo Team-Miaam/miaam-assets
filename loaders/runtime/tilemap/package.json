@@ -2,7 +2,7 @@
 	"name": "tilemap-loader",
 	"version": "0.0.1",
 	"description": "Tilemap loader",
-	"main": "dist/index.js",
+	"main": "index.js",
 	"scripts": {
 		"format": "prettier --write .",
 		"lint": "eslint .",
