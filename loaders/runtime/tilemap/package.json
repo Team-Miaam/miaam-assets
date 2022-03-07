@@ -1,5 +1,5 @@
 {
-	"name": "tilemap-loader",
+	"name": "tilemap-loader-runtime",
 	"version": "0.0.1",
 	"description": "Tilemap loader",
 	"main": "index.js",

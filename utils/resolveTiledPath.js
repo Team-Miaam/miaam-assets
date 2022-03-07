@@ -21,13 +21,16 @@ const simulateResolvePath = (basePath, targetPath) => {
 };
 
 const resolvePath = (projectRoot, resourcePath, dependencyPath) => {
-	const refactoredProjectRoot = projectRoot.replaceAll('\\', '/');
 	const refactoredResourcePath = resourcePath.replaceAll('\\', '/');
 	const refactoredDependencyPath = dependencyPath.replaceAll('\\', '/');
 	let resolvedPath = simulateResolvePath(refactoredResourcePath, refactoredDependencyPath);
-	if (resolvedPath.startsWith(refactoredProjectRoot)) {
-		// eslint-disable-next-line prefer-destructuring
-		resolvedPath = resolvedPath.split(refactoredProjectRoot)[1];
+
+	if (projectRoot) {
+		const refactoredProjectRoot = projectRoot.replaceAll('\\', '/');
+		if (resolvedPath.startsWith(refactoredProjectRoot)) {
+			// eslint-disable-next-line prefer-destructuring
+			resolvedPath = resolvedPath.split(refactoredProjectRoot)[1];
+		}
 	}
 	return resolvedPath;
 };

@@ -12,16 +12,21 @@ class Loader {
 	pre() {}
 
 	use(resource, next) {
+		const resourcePath = resource.url;
+		if (!this.test(resourcePath)) return next();
 		console.log(resource);
-		return next();
 
 		const tileMap = resource.data;
 		tileMap.tilesets = tileMap.tilesets.map((tileSet) => ({
 			...tileSet,
-			source: resolvePath(projectRoot, this.resourcePath, tileSet.source),
+			source: resolvePath(undefined, resourcePath, tileSet.source),
 		}));
 
 		return next();
+	}
+
+	test(fileName) {
+		return /\.(tilemap|tileanimation).json/.test(fileName);
 	}
 }
 
