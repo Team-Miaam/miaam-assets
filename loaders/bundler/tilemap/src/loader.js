@@ -1,4 +1,4 @@
-const { resolvePath } = require('../../../utils');
+const { resolvePath } = require('../../../../utils');
 
 function loader(tilemapSource) {
 	const { projectRoot } = this.getOptions();
