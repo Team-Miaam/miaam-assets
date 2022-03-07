@@ -15,7 +15,7 @@ class Loader {
 		const resourcePath = resource.url;
 		if (!this.test(resourcePath)) return next();
 
-		const tilesSet = resource.data;
+		const tileSet = resource.data;
 		tileSet.image = resolvePath(undefined, resourcePath, tileSet.image);
 		return next();
 	}
