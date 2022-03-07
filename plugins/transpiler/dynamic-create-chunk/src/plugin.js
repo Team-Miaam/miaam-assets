@@ -5,18 +5,18 @@ const plugin = (babel) => {
 	return {
 		name: 'create-chunk-plugin',
 		visitor: {
-			ExpressionStatement(path) {
-				const { expression } = path.node;
-				if (!expression) return;
+			CallExpression(path) {
+				if (path.node.callee.name !== '__createChunk__') return;
 
-				const { callee } = expression;
-				if (!callee) return;
-				if (callee.name !== '__createChunk__') return;
+				const expression = path.node;
 
-				const source = expression.arguments[0].value;
-				const importExpression = t.callExpression(t.import(), [t.stringLiteral(source)]);
-				const logicalExpression = t.logicalExpression('&&', t.identifier('__MIAAM__.UNDEFINED'), importExpression);
-				path.node.expression = logicalExpression;
+				const source = t.stringLiteral(expression.arguments[0].value);
+				const importExpression = t.callExpression(t.import(), [source]);
+				const sourceProperty = t.objectProperty(t.identifier('source'), source);
+				const loadFunctionExpression = t.arrowFunctionExpression([], importExpression, false);
+				const loadProperty = t.objectProperty(t.identifier('load'), loadFunctionExpression);
+				const objectExpression = t.objectExpression([sourceProperty, loadProperty]);
+				path.container[path.key] = objectExpression;
 			},
 		},
 	};
